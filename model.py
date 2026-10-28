@@ -83,8 +83,15 @@ def compute_feature_stats(X):
     return (mean,std)
     pass
 
-# Step 4 - standardize_features (not yet solved)
-# TODO: implement
+# Step 4 - standardize_features
+def standardize_features(X, mean, std):
+    # TODO: Apply z-score normalization using precomputed training mean and std.
+    X = np.asarray(X,dtype=float)
+    mean=np.asarray(mean,dtype=float) 
+    std= np.asarray(std,dtype=float)
+
+    output = (X-mean)/std 
+    return output
 
 # Step 5 - add_bias_column (not yet solved)
 # TODO: implement
