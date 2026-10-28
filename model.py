@@ -104,8 +104,15 @@ def add_bias_column(X):
     
     return output
 
-# Step 6 - prepare_design_matrix (not yet solved)
-# TODO: implement
+# Step 6 - prepare_design_matrix
+def prepare_design_matrix(X, mean, std):
+    # TODO: Standardize features then add the bias column to form the design matrix.
+
+
+    X_standardize = standardize_features(X,mean,std)
+    X_std_bias=add_bias_column(X_standardize)
+
+    return X_std_bias
 
 # Step 7 - predict_linear (not yet solved)
 # TODO: implement
