@@ -305,8 +305,19 @@ def run_one_epoch(state, X_train, y_train, X_val, y_val, lr, patience):
 
     pass
 
-# Step 17 - train_batch_gd (not yet solved)
-# TODO: implement
+# Step 17 - train_batch_gd
+def train_batch_gd(X_train, y_train, X_val, y_val, lr, epochs, patience, seed=None):
+    # TODO: Train weights with full-batch GD for up to epochs, with early stopping.
+    n_features = X_train.shape[1]
+
+
+    state = init_training_state(n_features,seed)
+
+    for n in range(epochs):
+        state = run_one_epoch(state,X_train,y_train,X_val,y_val,lr,patience)
+        if state['stopped'] is True:
+            return (state['best_weights'],state['train_losses'],state['val_losses'])
+    return (state['best_weights'],state['train_losses'],state['val_losses'])
 
 # Step 18 - mean_absolute_error
 def mean_absolute_error(y_true, y_pred):
